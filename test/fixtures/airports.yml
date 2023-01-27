@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  iata_code: MyString
+  airport: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  latitude: MyString
+  longitude: MyString
+
+two:
+  iata_code: MyString
+  airport: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  latitude: MyString
+  longitude: MyString
