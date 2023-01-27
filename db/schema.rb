@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_27_171036) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_27_204430) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,4 +33,46 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_27_171036) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "flights", force: :cascade do |t|
+    t.integer "flight_number"
+    t.integer "year"
+    t.string "month"
+    t.string "day"
+    t.string "day_of_week"
+    t.bigint "airline_id"
+    t.string "tail_number"
+    t.bigint "origin_airport_id"
+    t.bigint "destination_airport_id"
+    t.integer "scheduled_departure"
+    t.integer "departure_time"
+    t.integer "departure_delay"
+    t.integer "taxi_out"
+    t.integer "wheels_off"
+    t.integer "scheduled_time"
+    t.integer "elapsed_time"
+    t.integer "air_time"
+    t.integer "distance"
+    t.integer "wheels_on"
+    t.integer "taxi_in"
+    t.integer "scheduled_arrival"
+    t.integer "arrival_time"
+    t.integer "arrival_delay"
+    t.integer "diverted"
+    t.integer "cancelled"
+    t.text "cancellation_reason"
+    t.integer "air_system_delay", default: 0
+    t.integer "security_delay", default: 0
+    t.integer "airline_delay", default: 0
+    t.integer "late_aircraft_delay", default: 0
+    t.integer "weather_delay", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["airline_id"], name: "index_flights_on_airline_id"
+    t.index ["destination_airport_id"], name: "index_flights_on_destination_airport_id"
+    t.index ["origin_airport_id"], name: "index_flights_on_origin_airport_id"
+  end
+
+  add_foreign_key "flights", "airlines"
+  add_foreign_key "flights", "airports", column: "destination_airport_id"
+  add_foreign_key "flights", "airports", column: "origin_airport_id"
 end
