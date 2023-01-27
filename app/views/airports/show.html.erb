@@ -1,2 +1,40 @@
-<h1>Airports#show</h1>
-<p>Find me in app/views/airports/show.html.erb</p>
+<section>
+    <div class="container">
+        <div class="row mb-5 mt-5">
+            <div class="col text-center mt-3">
+                <h1>Airport Information</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="content">
+                <div class="form-row">
+                    <div class="col-12 mt-2">
+                        <strong><p class="fs-4 mb-2">Airport Code</p></strong>
+                        <p class="fs-5"><%= @airport.iata_code %></p>
+                    
+                        <strong><p class="fs-4 mb-2">Airport Name</p></strong>
+                        <p class="fs-5"><%= @airport.airport %></p>
+
+                        <strong><p class="fs-4 mb-2">City</p></strong>
+                        <p class="fs-5"><%= @airport.city %></p>
+
+                        <strong><p class="fs-4 mb-2">State</p></strong>
+                        <p class="fs-5"><%= @airport.state %></p>
+
+                        <strong><p class="fs-4 mb-2">Country</p></strong>
+                        <p class="fs-5"><%= @airport.country %></p>
+
+                        <strong><p class="fs-4 mb-2">Latitude</p></strong>
+                        <p class="fs-5"><%= @airport.latitude %></p>
+
+                        <strong><p class="fs-4 mb-2">Longitude</p></strong>
+                        <p class="fs-5"><%= @airport.longitude %></p>
+
+                        <%= link_to "Go back", airports_path, class: "btn btn-success mb-5" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
