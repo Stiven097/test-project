@@ -3,7 +3,7 @@ class AirportsController < ApplicationController
   before_action :set_airport, only: [:update, :edit, :show]
 
   def index
-    @airport = Airport.all
+    @airports = Airport.all
   end
 
   def new
