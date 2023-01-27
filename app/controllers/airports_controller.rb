@@ -7,23 +7,23 @@ class AirportsController < ApplicationController
   end
 
   def new
-    @airport = Airport.new(airport_params)
-
-    if @airport.save
-      redirect_to airports_path, flash: "Data saved"
-    else
-      redirect_to request.referrer, flash: {error: @airport.errors.full_messages} 
-    end
-    
+    @airport = Airport.new
   end
 
   def create
-    @airport = Airport.new
+    @airport = Airport.new(airport_params)
+
+    if @airport.save
+      redirect_to airports_path, notice: "Data saved"
+    else
+      redirect_to request.referrer, flash: {error: @airport.errors.full_messages} 
+    end
+
   end
 
   def update
     if @airport.update(airport_params)
-      redirect_to airports_path, flash: "Data updated"
+      redirect_to airports_path, notice: "Data updated"
     else
       redirect_to request.referrer, flash: {error: @airport.errors.full_messages}
     end
@@ -44,7 +44,7 @@ class AirportsController < ApplicationController
 
   private
 
-  def aiport_params
+  def airport_params
     params.require(:airport).permit(:iata_code, :airport, :city, :state, :country, :latitude, :longitude)
   end
   
