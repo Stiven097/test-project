@@ -1,2 +1,183 @@
-<h1>Flights#show</h1>
-<p>Find me in app/views/flights/show.html.erb</p>
+<section>
+    <div class="container">
+        <div class="row mb-5 mt-5">
+            <div class="col text-center">
+                <h1>Flight Information</h1>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="row">
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Flight Number</p></strong>
+                    <p class="fs-5"><%= @flight.flight_number %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Year</p></strong>
+                    <p class="fs-5"><%= @flight.year %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Month</p></strong>
+                    <p class="fs-5"><%= @flight.month %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Day</p></strong>
+                    <p class="fs-5"><%= @flight.day %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Day of Week</p></strong>
+                    <p class="fs-5"><%= @flight.day_of_week %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Airline</p></strong>
+                    <% @airline.each do |a| %>
+                        <div>
+                            <p class="fs-5"><%= a.airline %></p>
+                        </div>
+                    <% end %>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Tail Number</p></strong>
+                    <p class="fs-5"><%= @flight.tail_number %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Origin Airport</p></strong>
+                    <% @origin_airport.each do |or_a| %>
+                        <div>
+                            <p class="fs-5"><%= or_a.airport %></p>
+                        </div>
+                    <% end %>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Destination Airport</p></strong>
+                    <% @destination_airport.each do |dest_a| %>
+                        <div>
+                            <p class="fs-5"><%= dest_a.airport %></p>
+                        </div>
+                    <% end %>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Scheduled Departure</p></strong>
+                    <p class="fs-5"><%= @flight.scheduled_departure %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Departure Time</p></strong>
+                    <p class="fs-5"><%= @flight.departure_time %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Departure Delay</p></strong>
+                    <p class="fs-5"><%= @flight.departure_delay %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Taxi Out</p></strong>
+                    <p class="fs-5"><%= @flight.taxi_out %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Wheels Off</p></strong>
+                    <p class="fs-5"><%= @flight.wheels_off %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Scheduled Time</p></strong>
+                    <p class="fs-5"><%= @flight.scheduled_time %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Elapsed Time</p></strong>
+                    <p class="fs-5"><%= @flight.elapsed_time %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Air Time</p></strong>
+                    <p class="fs-5"><%= @flight.air_time %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Distance</p></strong>
+                    <p class="fs-5"><%= @flight.distance %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Wheels On</p></strong>
+                    <p class="fs-5"><%= @flight.wheels_on %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Taxi In</p></strong>
+                    <p class="fs-5"><%= @flight.taxi_in %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Scheduled Arrival</p></strong>
+                    <p class="fs-5"><%= @flight.scheduled_arrival %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Arrival Time</p></strong>
+                    <p class="fs-5"><%= @flight.arrival_time %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Arrival Delay</p></strong>
+                    <p class="fs-5"><%= @flight.arrival_delay %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Diverted</p></strong>
+                    <p class="fs-5"><%= @flight.diverted %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Cancelled</p></strong>
+                    <p class="fs-5"><%= @flight.cancelled %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Cancellation Reason</p></strong>
+                    <p class="fs-5"><%= @flight.cancellation_reason %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Air System Delay</p></strong>
+                    <p class="fs-5"><%= @flight.air_system_delay %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Security Delay</p></strong>
+                    <p class="fs-5"><%= @flight.security_delay %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Airline Delay</p></strong>
+                    <p class="fs-5"><%= @flight.airline_delay %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Late Aircraft Delay</p></strong>
+                    <p class="fs-5"><%= @flight.late_aircraft_delay %></p>
+                </div>
+
+                <div class="col-4 mb-2">
+                    <strong><p class="fs-4 mb-2">Weather Delay</p></strong>
+                    <p class="fs-5"><%= @flight.weather_delay %></p>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <%= link_to "Go back", flights_path, class: "btn btn-success mb-5" %>
+            </div>
+        </div>
+    </div>
+</section>
