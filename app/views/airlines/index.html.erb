@@ -1,1 +1,26 @@
-<h1>Airlines List</h1>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center mt-3 mb-3">
+                <h1>Airlines List</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <% @airlines.each do |airline| %>
+                    <div class="row">
+                        <div class="col-3">
+                            <%= link_to airline_path(airline), class: "text-decoration-none" do %>
+                                <p class="fs-5"><%= airline.airline %></p>
+                            <% end %>
+                        </div>
+                        <div class="col text-start">
+                            <%= link_to "Click to edit", edit_airline_path(airline), class: "btn btn-success" %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
