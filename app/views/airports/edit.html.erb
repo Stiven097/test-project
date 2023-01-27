@@ -1,0 +1,42 @@
+<section>
+    <div class="container">
+        <div class="row mb-5 mt-5">
+            <div class="col text-center">
+                <h1>Edit Airport</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <%= form_for @airport do |airport| %>
+                <div class="content">
+                    <div class="form-row">
+                        <div class="col-12 mb-2">
+                            <label class="form-label">Airport Code</label>
+                            <%= airport.text_field :iata_code, autofocus: true, autocomplete: false, placeholder: "ABE", class: "form-control mb-3" %>
+                        
+                            <label class="form-label">Airport Name</label>
+                            <%= airport.text_field :airport, autocomplete: true, placeholder: "Alburquerque International Sunport", class: "form-control mb-3" %>
+
+                            <label class="form-label">City</label>
+                            <%= airport.text_field :city, autocomplete: true, placeholder: "Alburquerque", class: "form-control mb-3" %>
+
+                            <label class="form-label">State</label>
+                            <%= airport.text_field :state, autocomplete: true, placeholder: "NM", class: "form-control mb-3" %>
+
+                            <label class="form-label">Country</label>
+                            <%= airport.text_field :country, autocomplete: true, placeholder: "USA", class: "form-control mb-3" %>
+
+                            <label class="form-label">Latitude</label>
+                            <%= airport.text_field :latitude, autocomplete: true, placeholder: "35.04022", class: "form-control mb-3" %>
+
+                            <label class="form-label">Longitude</label>
+                            <%= airport.text_field :longitude, autocomplete: true, placeholder: "-106.60919", class: "form-control mb-3" %>
+
+                            <%= airport.submit "Update", class: "btn btn-primary" %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>
