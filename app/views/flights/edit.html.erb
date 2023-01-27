@@ -1,0 +1,175 @@
+<section>
+    <div class="container">
+        <div class="row mb-5 mt-5">
+            <div class="col text-center">
+                <h1>Edit Flight</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <%= form_for @flight do |flight| %>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Flight Number</label>
+                            <%= flight.number_field :flight_number, autofocus: true, autocomplete: false, placeholder: "98", class: "form-control mb-3" %>
+                        </div>
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Year</label>
+                            <%= flight.number_field :year, autocomplete: true, placeholder: "2015", class: "form-control mb-3" %>
+                        </div>
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Month</label>
+                            <%= flight.text_field :month, autocomplete: true, placeholder: "1", class: "form-control mb-3" %>
+                        </div>
+                        
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Day</label>
+                            <%= flight.text_field :day, autocomplete: true, placeholder: "1", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Day of Week</label>
+                            <%= flight.text_field :day_of_week, autocomplete: true, placeholder: "4", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Airline</label>
+                            <%= flight.select(:airline_id, options_for_select(@airlines.map{ |a| [a.iata_code, a.id] }, selected: @flight.airline_id), {}, {class: "form-select mb-3"}) %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Tail Number</label>
+                            <%= flight.text_field :tail_number, autocomplete: true, placeholder: "N407AS", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Origin Airport</label>
+                            <%= flight.select(:origin_airport_id, options_for_select(@airports.map{ |a| [a.iata_code, a.id] }, selected: @flight.origin_airport_id), {}, {class: "form-select mb-3"}) %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Destination Airport</label>
+                            <%= flight.select(:destination_airport_id, options_for_select(@airports.map{ |a| [a.iata_code, a.id] }, selected: @flight.destination_airport_id), {}, {class: "form-select mb-3"}) %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Scheduled Departure</label>
+                            <%= flight.number_field :scheduled_departure, autocomplete: true, placeholder: "0005", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Departure Time</label>
+                            <%= flight.number_field :departure_time, autocomplete: true, placeholder: "2354", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Departure Delay</label>
+                            <%= flight.number_field :departure_delay, autocomplete: true, placeholder: "-11", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Taxi Out</label>
+                            <%= flight.number_field :taxi_out, autocomplete: true, placeholder: "21", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Wheels Off</label>
+                            <%= flight.number_field :wheels_off, autocomplete: true, placeholder: "0015", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Scheduled Time</label>
+                            <%= flight.number_field :scheduled_time, autocomplete: true, placeholder: "205", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Elapsed Time</label>
+                            <%= flight.number_field :elapsed_time, autocomplete: true, placeholder: "194", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Air Time</label>
+                            <%= flight.number_field :air_time, autocomplete: true, placeholder: "169", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Distance</label>
+                            <%= flight.number_field :distance, autocomplete: true, placeholder: "1448", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Wheels On</label>
+                            <%= flight.number_field :wheels_on, autocomplete: true, placeholder: "0404", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Taxi In</label>
+                            <%= flight.number_field :taxi_in, autocomplete: true, placeholder: "4", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Scheduled Arrival</label>
+                            <%= flight.number_field :scheduled_arrival, autocomplete: true, placeholder: "0430", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Arrival Time</label>
+                            <%= flight.number_field :arrival_time, autocomplete: true, placeholder: "0408", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Arrival Delay</label>
+                            <%= flight.number_field :arrival_delay, autocomplete: true, placeholder: "-22", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Diverted</label>
+                            <%= flight.number_field :diverted, autocomplete: true, placeholder: "0", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Cancelled</label>
+                            <%= flight.number_field :cancelled, autocomplete: true, placeholder: "0", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Cancellation Reason</label>
+                            <%= flight.text_area :cancellation_reason, autocomplete: true, placeholder: "Couldn't travel", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Air System Delay</label>
+                            <%= flight.number_field :air_system_delay, autocomplete: true, placeholder: "0", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Security Delay</label>
+                            <%= flight.number_field :security_delay, autocomplete: true, placeholder: "0", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Airline Delay</label>
+                            <%= flight.number_field :airline_delay, autocomplete: true, placeholder: "0", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Late Aircraft Delay</label>
+                            <%= flight.number_field :late_aircraft_delay, autocomplete: true, placeholder: "0", class: "form-control mb-3" %>
+                        </div>
+
+                        <div class="col-4 mb-2">
+                            <label class="form-label">Weather Delay</label>
+                            <%= flight.number_field :weather_delay, autocomplete: true, placeholder: "0", class: "form-control mb-3" %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-5">
+                            <%= flight.submit "Update", class: "btn btn-primary" %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>

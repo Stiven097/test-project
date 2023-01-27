@@ -1,0 +1,29 @@
+<section>
+    <div class="container">
+        <div class="row mx-auto text-align-center mt-5 mb-5">
+            <div class="col text-center">
+                <h1>Flights List</h1>
+            </div>
+            <div class="col text-center mt-2">
+                <%= link_to "Create New", new_flight_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <% @flights.each do |flight| %>
+                    <div class="row">
+                        <div class="col-4">
+                            <%= link_to flight_path(flight), class: "text-decoration-none" do %>
+                                <p class="fs-5">Flight No. <%= flight.flight_number %></p>
+                            <% end %>
+                        </div>
+                        <div class="col text-start">
+                            <%= link_to "Click to edit", edit_flight_path(flight), class: "btn btn-success" %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
