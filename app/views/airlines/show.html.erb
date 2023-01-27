@@ -1,0 +1,25 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h1>Airline Information</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="content">
+                <div class="form-row">
+                    <div class="col-12 mt-2">
+                        <strong><p class="fs-4 mb-2">Airline Code</p></strong>
+                        <p class="fs-5"><%= @airline.iata_code %></p>
+                    
+                        <strong><p class="fs-4 mb-2">Airline Name</p></strong>
+                        <p class="fs-5"><%= @airline.airline %></p>
+
+                        <%= link_to "Go back", airlines_path, class: "btn btn-success" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

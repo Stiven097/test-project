@@ -1,0 +1,27 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1>Edit Airline</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <%= form_for @airline do |airline| %>
+                <div class="content">
+                    <div class="form-row">
+                        <div class="col-12 mb-2">
+                            <label class="form-label">Airline Code</label>
+                            <%= airline.text_field :iata_code, autofocus: true, autocomplete: false, placeholder: "UA", class: "form-control mb-3" %>
+                        
+                            <label class="form-label">Airline Name</label>
+                            <%= airline.text_field :airline, autocomplete: true, placeholder: "American Airlines", class: "form-control mb-3" %>
+
+                            <%= airline.submit "Update", class: "btn btn-primary" %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</section>
