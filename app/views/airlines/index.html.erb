@@ -1,25 +1,39 @@
 <section>
     <div class="container">
-        <div class="row">
-            <div class="col text-center mt-3 mb-3">
-                <h1>Airlines List</h1>
+        <div class="row mx-auto text-align-center mt-5 mb-5">
+            <div class="col text-center">
+                <h1>Airlines List</h1> 
+            </div>
+            <div class="col text-center mt-2">
+                <%= link_to "Create New", new_airline_path, class: "btn btn-primary" %>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12">
-                <% @airlines.each do |airline| %>
-                    <div class="row">
-                        <div class="col-3">
-                            <%= link_to airline_path(airline), class: "text-decoration-none" do %>
-                                <p class="fs-5"><%= airline.airline %></p>
-                            <% end %>
-                        </div>
-                        <div class="col text-start">
-                            <%= link_to "Click to edit", edit_airline_path(airline), class: "btn btn-success" %>
-                        </div>
-                    </div>
-                <% end %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><p class="fs-5">Airline Name</p></th>
+                            <th><p class="fs-5">Actions</p></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @airlines.each do |a| %>
+                            <tr>
+                                <td style="padding-right: 20px;">
+                                    <%= link_to airline_path(a), class: "text-decoration-none" do %>
+                                        <p class="fs-5"><%= a.airline %></p>
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <%= link_to "Click to edit", edit_airline_path(a), class: "btn btn-success" %>
+                                    <%= link_to "Delete", airline_path(a), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
