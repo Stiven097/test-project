@@ -48,7 +48,7 @@ class AirportsController < ApplicationController
     destinationAirport = Flight.where(destination_airport_id: @airport)
 
     if originAirport.exists? || destinationAirport.exists?
-      redirect_to airlines_path, alert: "Cannot delete airport because there is a flight or more related to it."
+      redirect_to airlines_path, alert: "Cannot delete airport because there is a flight or more related to it. Please change this relation first."
     else
       if @airport.destroy
         redirect_to request.referrer, notice: "The data has been deleted"
