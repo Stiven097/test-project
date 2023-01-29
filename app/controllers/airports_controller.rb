@@ -1,6 +1,6 @@
 class AirportsController < ApplicationController
 
-  before_action :set_airport, only: [:update, :edit, :show]
+  before_action :set_airport, only: [:update, :edit, :show, :destroy]
 
   def index
     @airports = Airport.all
@@ -42,6 +42,23 @@ class AirportsController < ApplicationController
     @airport = Airport.find(params[:id])
   end
 
+  def destroy
+
+    originAirport = Flight.where(origin_airport_id: @airport)
+    destinationAirport = Flight.where(destination_airport_id: @airport)
+
+    if originAirport.exists? || destinationAirport.exists?
+      redirect_to airlines_path, alert: "Cannot delete airport because there is a flight or more related to it."
+    else
+      if @airport.destroy
+        redirect_to request.referrer, notice: "The data has been deleted"
+      else
+        redirect_to request.referrer, flash: {error: @airport.errors.full_messages}
+      end
+    end
+    
+  end
+  
   private
 
   def airport_params
