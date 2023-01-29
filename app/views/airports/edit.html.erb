@@ -12,7 +12,7 @@
                     <div class="form-row">
                         <div class="col-12 mb-2">
                             <label class="form-label">Airport Code</label>
-                            <%= airport.text_field :iata_code, autofocus: true, autocomplete: false, placeholder: "ABE", class: "form-control mb-3" %>
+                            <%= airport.text_field :iata_code, autofocus: true, autocomplete: false, placeholder: "ABE", class: "form-control text-uppercase mb-3" %>
                         
                             <label class="form-label">Airport Name</label>
                             <%= airport.text_field :airport, autocomplete: true, placeholder: "Alburquerque International Sunport", class: "form-control mb-3" %>
@@ -21,10 +21,10 @@
                             <%= airport.text_field :city, autocomplete: true, placeholder: "Alburquerque", class: "form-control mb-3" %>
 
                             <label class="form-label">State</label>
-                            <%= airport.text_field :state, autocomplete: true, placeholder: "NM", class: "form-control mb-3" %>
+                            <%= airport.text_field :state, autocomplete: true, placeholder: "NM", class: "form-control text-uppercase mb-3" %>
 
                             <label class="form-label">Country</label>
-                            <%= airport.text_field :country, autocomplete: true, placeholder: "USA", class: "form-control mb-3" %>
+                            <%= airport.text_field :country, autocomplete: true, placeholder: "USA", class: "form-control text-uppercase mb-3" %>
 
                             <label class="form-label">Latitude</label>
                             <%= airport.text_field :latitude, autocomplete: true, placeholder: "35.04022", class: "form-control mb-3" %>
