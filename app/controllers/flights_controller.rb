@@ -1,7 +1,7 @@
 class FlightsController < ApplicationController
 
-  before_action :set_flight, only: [:edit, :update, :show]
-  before_action :set_airlines_and_aiports, only: [:new, :edit]
+  before_action :set_flight, only: [:edit, :update, :show, :destroy]
+  before_action :set_airlines_and_aiports, only: [:new, :edit, :destroy]
 
   def index
     @flights = Flight.all
@@ -50,6 +50,15 @@ class FlightsController < ApplicationController
     @airports = Airport.all
   end
   
+  def destroy
+
+    if @flight.destroy
+      redirect_to flights_path, notice: "The data has been deleted"
+    else
+      redirect_to request.referrer, flash: { error: @flight.errors.full_messages }
+    end
+    
+  end
   
   private
 
