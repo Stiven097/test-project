@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "jquery": "^3.6.3",
     "toastr": "^2.1.4"
   }
 }
