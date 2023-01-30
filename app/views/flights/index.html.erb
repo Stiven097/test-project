@@ -15,32 +15,40 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12">
-                <table>
-                    <thead>
-                        <tr>
-                            <th><p class="fs-5">Flight Number</p></th>
-                            <th><p class="fs-5">Actions</p></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @flights.each do |f| %>
-                            <tr>
-                                <td style="padding-right: 20px;">
-                                    <%= link_to flight_path(f), class: "text-decoration-none" do %>
-                                        <p class="fs-5">Flight No. <%= f.flight_number %></p>
-                                    <% end %>
-                                </td>
-                                <td>
-                                    <%= link_to "Click to edit", edit_flight_path(f), class: "btn btn-success" %>
-                                    <%= link_to "Delete", flight_path(f), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
-                                </td>
-                            </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+        <% if @flights.blank? %>
+            <div class="container">
+                <div class="row mx-auto text-align-center mt-10">
+                    <p class="fs-3">No data added yet.</p>
+                </div>
             </div>
-        </div>
+        <% else %>
+            <div class="row">
+                <div class="col-12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><p class="fs-5">Flight Number</p></th>
+                                <th><p class="fs-5">Actions</p></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @flights.each do |f| %>
+                                <tr>
+                                    <td style="padding-right: 20px;">
+                                        <%= link_to flight_path(f), class: "text-decoration-none" do %>
+                                            <p class="fs-5">Flight No. <%= f.flight_number %></p>
+                                        <% end %>
+                                    </td>
+                                    <td>
+                                        <%= link_to "Click to edit", edit_flight_path(f), class: "btn btn-success" %>
+                                        <%= link_to "Delete", flight_path(f), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+                                    </td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <% end %>
     </div>
 </section>
