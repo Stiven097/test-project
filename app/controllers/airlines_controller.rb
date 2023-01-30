@@ -10,7 +10,7 @@ class AirlinesController < ApplicationController
     @airline = Airline.new(airline_params)
 
     if @airline.save
-      redirect_to airlines_path, notice: "Datos guardados"
+      redirect_to airlines_path, notice: "Data saved"
     else
       redirect_to request.referrer, flash: {error: @airline.errors.full_messages}
     end
@@ -24,7 +24,7 @@ class AirlinesController < ApplicationController
   def update
 
     if @airline.update(airline_params) 
-      redirect_to airlines_path, notice: "Datos actualizados"
+      redirect_to airlines_path, notice: "Data updated"
     else
       redirect_to request.referrer, flash: {error: @airline.errors.full_messages}
     end
