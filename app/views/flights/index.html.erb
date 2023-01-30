@@ -11,18 +11,29 @@
 
         <div class="row">
             <div class="col-12">
-                <% @flights.each do |flight| %>
-                    <div class="row">
-                        <div class="col-4">
-                            <%= link_to flight_path(flight), class: "text-decoration-none" do %>
-                                <p class="fs-5">Flight No. <%= flight.flight_number %></p>
-                            <% end %>
-                        </div>
-                        <div class="col text-start">
-                            <%= link_to "Click to edit", edit_flight_path(flight), class: "btn btn-success" %>
-                        </div>
-                    </div>
-                <% end %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><p class="fs-5">Flight Number</p></th>
+                            <th><p class="fs-5">Actions</p></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @flights.each do |f| %>
+                            <tr>
+                                <td style="padding-right: 20px;">
+                                    <%= link_to flight_path(f), class: "text-decoration-none" do %>
+                                        <p class="fs-5">Flight No. <%= f.flight_number %></p>
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <%= link_to "Click to edit", edit_flight_path(f), class: "btn btn-success" %>
+                                    <%= link_to "Delete", flight_path(f), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
