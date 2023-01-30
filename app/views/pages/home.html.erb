@@ -1,8 +1,46 @@
 <section>
     <div class="row">
-        <div class="col text-center">
+        <div class="col text-center mb-5 mt-5">
             <h1>Test Project</h1>
             <h3>Main menu</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="card text-center">
+                <%= link_to airports_path, class: "text-decoration-none" do %>
+                    <div class="card-header">
+                        <strong><p class="fs-4">Airports</p></strong>
+                    </div>
+                    <div class="card-content pt-2 pb-2">
+                        <p class="fs-5">Click to access airports info</p>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card text-center">
+                <%= link_to airlines_path, class: "text-decoration-none" do %>
+                    <div class="card-header">
+                        <strong><p class="fs-4">Airlines</p></strong>
+                    </div>
+                    <div class="card-content pt-2 pb-2">
+                        <p class="fs-5">Click to access airlines info</p>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card text-center">
+                <%= link_to flights_path, class: "text-decoration-none" do %>
+                    <div class="card-header">
+                        <strong><p class="fs-4">Flights</p></strong>
+                    </div>
+                    <div class="card-content pt-2 pb-2">
+                        <p class="fs-5">Click to access flights info</p>
+                    </div>
+                <% end %>
+            </div>
         </div>
     </div>
 </section>
