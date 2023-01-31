@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+csv_path = Rails.root.join('db', 'airlines.csv')
+copy_clause = "COPY airlines FROM '#{csv_path}' WITH(FORMAT CSV, HEADER)"
+ActiveRecord::Base.connection.execute(copy_clause)
+
+csv_path = Rails.root.join('db', 'airports.csv')
+copy_clause = "COPY airports FROM '#{csv_path}' WITH(FORMAT CSV, HEADER)"
+ActiveRecord::Base.connection.execute(copy_clause)
+
+csv_path = Rails.root.join('db', 'flights.csv')
+copy_clause = "COPY flights FROM '#{csv_path}' WITH(FORMAT CSV, HEADER)"
+ActiveRecord::Base.connection.execute(copy_clause)
